@@ -9,4 +9,5 @@ urlpatterns = [
     path("api/token/", TokenObtainPairView.as_view(), name="get_token"), # view to get token
     path("api/token/refresh/", TokenRefreshView.as_view(), name="refresh_token"), # view to refresh token
     path("api-auth/", include("rest_framework.urls")), # view to authenticate
+    path("api/", include("api.urls")), # send to api routes
 ]

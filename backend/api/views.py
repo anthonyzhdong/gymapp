@@ -7,7 +7,7 @@ from .models import Workout
 
 class WorkoutListCreate(generics.ListCreateAPIView):
     serializer_class = WorkoutSerializer
-    permission_classes = (IsAuthenticated,) # only authenticated users can access
+    permission_classes = [IsAuthenticated] # only authenticated users can access
     
     def get_queryset(self):
         user = self.request.user
@@ -22,13 +22,13 @@ class WorkoutListCreate(generics.ListCreateAPIView):
             
 class WorkoutDelete(generics.DestroyAPIView):
     serializer_class = WorkoutSerializer
-    permission_classes = (IsAuthenticated,) # only authenticated users can access
+    permission_classes = [IsAuthenticated] # only authenticated users can access
     
     def get_queryset(self):
         user = self.request.user
         return Workout.objects.filter(owner=user)
     
-    
+
 
 # Create your views here.
 class CreateUserView(generics.CreateAPIView):
