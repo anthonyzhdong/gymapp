@@ -47,7 +47,45 @@ function Home(){
     }
 
 
-    return <div>Home</div>
+    return <div>
+        <div>
+            <h2>Workouts</h2>
+
+
+        </div>
+        <h2>Create Workout</h2>
+        <form onSubmit={createWorkout}>
+            <label htmlFor="title">Title</label>
+        <br/>
+            <input 
+                type = "text" 
+                id="title" 
+                name = "title" 
+                required 
+                onChange={(e) => setTitle(e.target.value)} 
+                value = {title}
+            />
+            <label htmlFor="content">Content</label>
+            <br/>
+            <textarea 
+                id="content" 
+                name = "content" 
+                required 
+                onChange={(e) => setContent(e.target.value)} 
+                value = {content}
+            ></textarea>
+            <br/>
+                <input type = "submit" value = "Submit"></input>    
+
+
+        </form>
+
+
+
+
+
+
+    </div>
 
 }
 
