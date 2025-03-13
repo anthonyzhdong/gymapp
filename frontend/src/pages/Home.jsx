@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../api";
 import Workout from "../components/Workout";
+import "../styles/home.css";
 import { data } from "react-router-dom";
 
 function Home(){
