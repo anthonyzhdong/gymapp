@@ -16,7 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
 class WorkoutSerializer(serializers.ModelSerializer):
     class Meta:
         model = Workout
-        fields = ["id", "name", "description", "created_at", "owner"] # fields to be serialized
+        fields = ["id", "title", "content", "created_at", "owner"] # fields to be serialized
         extra_kwargs = {"owner": {"read_only": True}} # Tell us who owner is but dont write it
         
 

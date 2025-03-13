@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../api";
+import Workout from "../components/Workout";
 import { data } from "react-router-dom";
 
 function Home(){
@@ -29,10 +30,11 @@ function Home(){
             }else{
                 alert("Error Deleting Workout")
             }
+
+            getWorkout()
         }).catch((err) => alert(err))
-        getWorkout()
         // write frontend removal of workout from list
-    }
+    };
 
     const createWorkout = (e) => {
         e.preventDefault()
@@ -42,14 +44,19 @@ function Home(){
             }else{
                 alert("Error Creating Workout")
             }
+            getWorkout()
         }).catch((err) => alert(err))
-        getWorkout()
-    }
+        
+    };
 
 
     return <div>
         <div>
             <h2>Workouts</h2>
+
+            {workout.map((workout) => (
+                <Workout workout = {workout} onDelete={deleteWorkout} key={workout.id}/>
+            ))}
 
 
         </div>
@@ -71,8 +78,9 @@ function Home(){
                 id="content" 
                 name = "content" 
                 required 
-                onChange={(e) => setContent(e.target.value)} 
                 value = {content}
+                onChange={(e) => setContent(e.target.value)} 
+                
             ></textarea>
             <br/>
                 <input type = "submit" value = "Submit"></input>    
