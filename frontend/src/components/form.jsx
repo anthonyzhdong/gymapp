@@ -2,6 +2,7 @@ import {useState} from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+import "../styles/form.css"
 
 function Form({route, method}){
     const [username, setUsername] = useState("")
@@ -62,3 +63,5 @@ function Form({route, method}){
 
 
 }
+
+export default Form
