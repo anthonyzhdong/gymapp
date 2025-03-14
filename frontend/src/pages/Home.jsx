@@ -89,11 +89,6 @@ function Home(){
 
         </form>
 
-
-
-
-
-
     </div>
 
 }
