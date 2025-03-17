@@ -1,0 +1,17 @@
+todo list
+
+registration
+& login forms
+
+front end:
+Enter workout
+-> exercise
+-> weight
+-> reps
+
+Save workout
+
+Create a database 
+connect to AWS
+Store logins and also workouts per account
+
