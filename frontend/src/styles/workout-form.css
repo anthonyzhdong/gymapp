@@ -1,0 +1,170 @@
+.workout-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .form-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .form-textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .exercises-container {
+    margin-top: 30px;
+  }
+  
+  .exercise-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .sets-container {
+    margin-top: 15px;
+  }
+  
+  .sets-header {
+    display: flex;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .set-row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .set-column {
+    flex: 0 0 15%;
+    font-weight: bold;
+  }
+  
+  .weight-column {
+    flex: 0 0 25%;
+  }
+  
+  .reps-column {
+    flex: 0 0 25%;
+  }
+  
+  .actions-column {
+    flex: 0 0 35%;
+    text-align: right;
+  }
+  
+  .weight-input, .reps-input {
+    width: 80px;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .add-exercise-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  .add-exercise-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .add-set-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .add-set-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .remove-btn, .remove-set-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .remove-btn:hover, .remove-set-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  .form-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
