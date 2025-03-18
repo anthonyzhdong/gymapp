@@ -5,7 +5,7 @@ from.models import Workout
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User # represents a user in django
-        fields = ["id", "username", "password"]
+        fields = ["id", "username", "first_name", "last_name", "password", "email"]
         extra_kwargs = {"password": {"write_only": True}} # accept password when creating a new user but not return it 
         
     def create(self, validated_data):

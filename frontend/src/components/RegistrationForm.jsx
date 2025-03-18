@@ -1,18 +1,17 @@
 import {useState} from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import "../styles/form.css"
 
-function Form({route, method}){
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
+function RegistrationForm({route}){
+    const [username, setUsername] = useState("")
+    const [first_name, setFirstName] = useState("")
+    const [last_name, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
-    const name = method === "login" ? "Login" : "Register"
 
     const handleSubmit = async (e) => {
         setLoading(true)
@@ -20,19 +19,14 @@ function Form({route, method}){
 
         try{
             const res = await api.post(route, {
-                firstName,
-                lastName,
+                username,
+                first_name,
+                last_name,
                 email,
                 password
             })
+            navigate("/login")
             
-            if(method === "login"){
-                localStorage.setItem(ACCESS_TOKEN, res.data.access)
-                localStorage.setItem(REFRESH_TOKEN, res.data.refresh)
-                navigate("/")
-            }else{
-                navigate("/login")
-            }
 
         }catch(error){
             alert(error)
@@ -41,39 +35,31 @@ function Form({route, method}){
         }
     }
 
-    // Show all fields for registration, only email and password for login
-    const isRegister = method !== "login"
-
     return <form onSubmit={handleSubmit} className="form-container">
-        <h1>{name}</h1>
-        
-        {isRegister && (
-            <>
-                <input 
-                    className="form-input"
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="First Name"
-                    required
-                />
-                <input 
-                    className="form-input"
-                    type="text"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder="Last Name"
-                    required
-                />
-            </>
-        )}
-        
+        <h1>Register</h1>
+
         <input 
             className="form-input"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
+            required
+        />
+        <input 
+            className="form-input"
+            type="text"
+            value={first_name}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="First Name"
+            required
+        />
+        <input 
+            className="form-input"
+            type="text"
+            value={last_name}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Last Name"
             required
         />
         <input 
@@ -84,14 +70,23 @@ function Form({route, method}){
             placeholder="Password"
             required
         />
+        <input 
+            className="form-input"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+        />
+       
         <button 
             className="form-button" 
             type="submit"
             disabled={loading}
         >
-            {loading ? "Processing..." : name}
+            {loading ? "Processing..." : "Register"}
         </button>
     </form>
 }
 
-export default Form
+export default RegistrationForm
