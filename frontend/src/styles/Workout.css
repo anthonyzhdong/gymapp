@@ -1,33 +1,151 @@
 .workout-container {
-    padding: 10px;
-    margin: 20px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .workout-title {
-    color: #333;
-  }
-  
-  .workout-content {
-    color: #666;
-  }
-  
-  .workout-date {
-    color: #999;
-    font-size: 0.8rem;
-  }
-  
-  .delete-button {
-    background-color: #f44336; /* Red */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .delete-button:hover {
-    background-color: #d32f2f; /* Darker red */
-  }
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.workout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.workout-header:hover {
+  background-color: #f0f0f0;
+}
+
+.workout-title-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.workout-title {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.workout-date {
+  color: #666;
+  font-size: 14px;
+}
+
+.workout-toggle {
+  color: #666;
+  font-size: 16px;
+}
+
+.workout-details {
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.workout-notes {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.workout-notes p {
+  margin: 0;
+  color: #666;
+}
+
+.workout-exercises {
+  margin-bottom: 20px;
+}
+
+.exercise-item {
+  margin-bottom: 25px;
+}
+
+.exercise-name {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.sets-table {
+  width: 100%;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.sets-header {
+  display: flex;
+  background-color: #f8f9fa;
+  padding: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.set-row {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.completed-set {
+  background-color: #e8f5e9;
+}
+
+.set-column {
+  flex: 0 0 20%;
+  font-weight: 500;
+}
+
+.weight-column {
+  flex: 0 0 40%;
+}
+
+.reps-column {
+  flex: 0 0 40%;
+}
+
+.no-exercises {
+  font-style: italic;
+  color: #999;
+}
+
+.workout-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.edit-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #2980b9;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}

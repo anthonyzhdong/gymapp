@@ -1,30 +1,24 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from.models import Workout, Exercise, Set
+from .models import Workout, Exercise, Set
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User # represents a user in django
-        fields = ["id", "username", "first_name", "last_name", "password", "email"]
-        extra_kwargs = {"password": {"write_only": True}} # accept password when creating a new user but not return it 
+        model = User
+        fields = ["id", "username", "first_name", "last_name", "email"]
         
-    def create(self, validated_data):
-        print(validated_data)
-        user = User.objects.create_user(**validated_data)
-        return user # accepts validated data and creates a new user with it
-    
 class SetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Set
-        fields = ["id", "weight", "reps", "set_number", "completed"]
-        
+        fields = ['id', 'weight', 'reps', 'set_number', 'completed']
+
 class ExerciseSerializer(serializers.ModelSerializer):
-    sets = SetSerializer(many=True, real_only=False)
+    sets = SetSerializer(many=True, read_only=False)
     
     class Meta:
         model = Exercise
-        fields = ["id", "name", "order", "sets"]
-        
+        fields = ['id', 'name', 'order', 'sets']
+    
     def create(self, validated_data):
         sets_data = validated_data.pop('sets')
         exercise = Exercise.objects.create(**validated_data)
@@ -33,6 +27,7 @@ class ExerciseSerializer(serializers.ModelSerializer):
             Set.objects.create(exercise=exercise, **set_data)
             
         return exercise
+    
     def update(self, instance, validated_data):
         sets_data = validated_data.pop('sets', None)
         
@@ -61,7 +56,7 @@ class ExerciseSerializer(serializers.ModelSerializer):
                     Set.objects.create(exercise=instance, **set_data)
         
         return instance
-    
+
 class WorkoutSerializer(serializers.ModelSerializer):
     exercises = ExerciseSerializer(many=True, read_only=False)
     owner_username = serializers.SerializerMethodField()
