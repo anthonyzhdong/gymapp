@@ -2,18 +2,37 @@ import { useState, useEffect } from "react";
 import api from "../api";
 import Workout from "../components/Workout";
 import "../styles/home.css";
+import { jwtDecode } from "jwt-decode";
+import { ACCESS_TOKEN } from "../constants";
 import { data } from "react-router-dom";
 
 function Home(){
-
-    const [workout, setWorkouts] = useState([])
-    const [content, setContent] = useState("")
-    const [title, setTitle] = useState("")
+    const [workout, setWorkouts] = useState([]);
+    const [content, setContent] = useState("");
+    const [title, setTitle] = useState("");
+    const [username, setUsername] = useState("");
 
 
     useEffect(() => {
+        fetchUserInfo();
+
         getWorkout()
     }, [])
+
+
+    const fetchUserInfo = async () => {
+        try {
+            const response = await api.get("/api/user/current/");
+            if (response.data) {
+                // Set user information
+                setUsername(response.data.username);
+            }
+        } catch (error) {
+            console.error("Error fetching user info:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const getWorkout = () => {
         api
@@ -52,6 +71,11 @@ function Home(){
 
 
     return <div>
+
+        <div className="user-welcome">
+                <h1>Welcome, {username}!</h1>
+                <a href="/logout" className="logout-link">Logout</a>
+        </div>
         <div>
             <h2>Workouts</h2>
 
