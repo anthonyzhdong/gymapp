@@ -74,7 +74,6 @@ function Home(){
 
         <div className="user-welcome">
                 <h1>Welcome, {username}!</h1>
-                <a href="/logout" className="logout-link">Logout</a>
         </div>
         <div>
             <h2>Workouts</h2>
@@ -112,6 +111,8 @@ function Home(){
 
 
         </form>
+
+        <a href="/logout" className="logout-link">Logout</a>
 
     </div>
 
