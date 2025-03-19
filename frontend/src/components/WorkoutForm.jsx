@@ -154,7 +154,7 @@ function WorkoutForm({ onSubmit, initialData = null }) {
           id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="e.g., Monday Chest Day"
+          placeholder=""
           className="form-input"
           required
         />
@@ -166,7 +166,7 @@ function WorkoutForm({ onSubmit, initialData = null }) {
           id="notes"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
-          placeholder="Any details about this workout..."
+          placeholder=""
           className="form-textarea"
         />
       </div>
@@ -184,7 +184,7 @@ function WorkoutForm({ onSubmit, initialData = null }) {
                   id={`exercise-${exerciseIndex}`}
                   value={exercise.name}
                   onChange={(e) => updateExerciseName(exerciseIndex, e.target.value)}
-                  placeholder="e.g., Bench Press"
+                  placeholder=""
                   className="form-input"
                   required
                 />
@@ -204,7 +204,7 @@ function WorkoutForm({ onSubmit, initialData = null }) {
               
               <div className="sets-header">
                 <div className="set-column">Set</div>
-                <div className="weight-column">Weight (lbs)</div>
+                <div className="weight-column">Weight (kgs)</div>
                 <div className="reps-column">Reps</div>
                 <div className="actions-column">Actions</div>
               </div>
@@ -212,7 +212,7 @@ function WorkoutForm({ onSubmit, initialData = null }) {
               {exercise.sets.map((set, setIndex) => (
                 <div key={setIndex} className="set-row">
                   <div className="set-column">
-                    <span>Set {set.set_number}</span>
+                    <span>{set.set_number}</span>
                   </div>
                   
                   <div className="weight-column">

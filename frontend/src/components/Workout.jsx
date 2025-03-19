@@ -35,7 +35,7 @@ function Workout({ workout, onDelete, onEdit }) {
                   <div className="sets-table">
                     <div className="sets-header">
                       <div className="set-column">Set</div>
-                      <div className="weight-column">Weight (lbs)</div>
+                      <div className="weight-column">Weight (kgs)</div>
                       <div className="reps-column">Reps</div>
                     </div>
                     
