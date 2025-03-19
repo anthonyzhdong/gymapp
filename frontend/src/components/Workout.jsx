@@ -44,7 +44,7 @@ function Workout({ workout, onDelete, onEdit }) {
                         key={set.id || setIndex} 
                         className={`set-row ${set.completed ? 'completed-set' : ''}`}
                       >
-                        <div className="set-column">Set {set.set_number}</div>
+                        <div className="set-column">{set.set_number}</div>
                         <div className="weight-column">{set.weight}</div>
                         <div className="reps-column">{set.reps}</div>
                       </div>
